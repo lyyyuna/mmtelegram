@@ -46,7 +46,7 @@ func main() {
 				glog.Errorf("Send image error, the error is: %v", err)
 			}
 
-			time.Sleep(time.Second * 1)
+			time.Sleep(time.Second * 360)
 
 			j++
 		}
