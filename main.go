@@ -14,6 +14,7 @@ import (
 func main() {
 	token := flag.String("t", "6882", "token")
 	start := flag.Int("i", 1500, "start")
+	seconds := flag.Int("s", 30, "seconds")
 
 	flag.Parse()
 	defer glog.Flush()
@@ -52,7 +53,7 @@ func main() {
 				glog.Errorf("%v - %v", i, j)
 			}
 
-			time.Sleep(time.Second * 30)
+			time.Sleep(time.Second * time.Duration(*seconds))
 
 			j++
 		}
