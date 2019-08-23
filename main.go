@@ -13,6 +13,8 @@ import (
 
 func main() {
 	token := flag.String("t", "6882", "token")
+	start := flag.Int("i", 1500, "start")
+
 	flag.Parse()
 	defer glog.Flush()
 
@@ -23,7 +25,7 @@ func main() {
 
 	bot.Debug = true
 	request := gorequest.New()
-	i := 1500
+	i := *start
 	for {
 		j := 1
 		for {
