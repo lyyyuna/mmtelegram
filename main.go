@@ -31,10 +31,16 @@ func main() {
 		j := 1
 		for {
 			targetUrl := fmt.Sprintf("https://img1.mm131.me/pic/%v/%v.jpg", i, j)
-			resp, body, _ := request.Get(targetUrl).
+			resp, body, errs := request.Get(targetUrl).
 				Set("Referer", "https://m.mm131.net/xinggan").
 				Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36").
 				Set("Sec-Fetch-Mode", "no-cors").End()
+
+			if len(errs) > 0 {
+				fmt.Errorf("Network error: %v", errs)
+				glog.Errorf("Network error: %v", errs)
+				break
+			}
 
 			if resp.StatusCode == http.StatusNotFound {
 				glog.Errorf("404 not found, %v - %v", i, j)
