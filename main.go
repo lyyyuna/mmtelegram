@@ -30,6 +30,7 @@ func main() {
 	for {
 		j := 1
 		for {
+			time.Sleep(time.Second * time.Duration(*seconds))
 			targetUrl := fmt.Sprintf("https://img1.mm131.me/pic/%v/%v.jpg", i, j)
 			resp, body, _ := request.Get(targetUrl).
 				Set("Referer", "https://m.mm131.net/xinggan").
@@ -52,8 +53,6 @@ func main() {
 				glog.Error(resp.StatusCode)
 				glog.Errorf("%v - %v", i, j)
 			}
-
-			time.Sleep(time.Second * time.Duration(*seconds))
 
 			j++
 		}
