@@ -31,7 +31,7 @@ func main() {
 		j := 1
 		for {
 			time.Sleep(time.Second * time.Duration(*seconds))
-			targetUrl := fmt.Sprintf("https://img1.mm131.me/pic/%v/%v.jpg", i, j)
+			targetUrl := fmt.Sprintf("https://img1.mmmw.me/pic/%v/%v.jpg", i, j)
 			resp, body, errs := request.Get(targetUrl).
 				Set("Referer", "https://m.mm131.net/xinggan").
 				Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36").
