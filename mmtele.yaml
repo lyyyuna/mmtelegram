@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: mmtele
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mmtele
+    spec:
+      containers:
+      - name: mmtele
+        image: lyyyuna/mmtele:latest
+        command: ["./mmtelegram", "-t", "sssss", "-s", "360", "-i", "2984"]
