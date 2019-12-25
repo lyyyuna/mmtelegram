@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM gcr.io/distroless/base
 
 WORKDIR /home/app
 
